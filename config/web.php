@@ -7,8 +7,8 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        'userManager' => [
-            'class' => 'app\modules\UsersManager\Module',
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
             ],
     ],
     'components' => [
