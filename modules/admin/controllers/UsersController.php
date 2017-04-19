@@ -26,6 +26,14 @@ class UsersController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+			'contentNegotiator' => [
+            'class' => \yii\filters\ContentNegotiator::className(),
+            'only' => ['index', 'view'],
+            //'formatParam' => '_format',
+            'formats' => [
+                'application/json' => \yii\web\Response::FORMAT_JSON,
+            ],
+        ],
         ];
     }
 
@@ -35,13 +43,15 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+		return Users::find()->all();
+		
+        // $searchModel = new UsersSearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		
+        // return $this->render('index', [
+            // 'searchModel' => $searchModel,
+            // 'dataProvider' => $dataProvider,
+        // ]);
     }
 
     /**
