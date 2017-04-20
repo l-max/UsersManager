@@ -8,6 +8,7 @@ Ext.define('AdminApp.model.User', {
         'last_name',
         'date_reg',
         'id_status',
-        'descript'
+        'descript',
+		'status.status_name'
     ]
 });

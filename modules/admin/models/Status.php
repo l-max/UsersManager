@@ -51,5 +51,5 @@ class Status extends \yii\db\ActiveRecord
     {
         $statuses = Status::find()->all();
         return ArrayHelper::map($statuses, 'id', 'status_name');
-    } 
+    }
 }

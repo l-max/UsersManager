@@ -43,7 +43,11 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
-		return Users::find()->all();
+		$users = Users::find()
+		->with(['status'])
+		->asArray()->all();
+		
+		return $users;
 		
         // $searchModel = new UsersSearch();
         // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
